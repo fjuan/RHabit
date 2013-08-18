@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+@media (min-width: 980px) {
+  body {
+    padding-top: 100px;
+  }
+}
