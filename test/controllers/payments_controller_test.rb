@@ -21,7 +21,7 @@ class PaymentsControllerTest < ActionController::TestCase
       post :create, payment: { amount: @payment.amount, category: @payment.category, datetime: @payment.datetime, description: @payment.description, method: @payment.method, shared: @payment.shared }
     end
 
-    assert_redirected_to payment_path(assigns(:payment))
+    assert_redirected_to root_path(date: @payment.datetime.to_date)
   end
 
   test "should show payment" do

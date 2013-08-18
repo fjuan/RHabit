@@ -1,6 +1,19 @@
 %section
   .page-header
-    %h1 Day chronicle
+    %h1
+      Day chronicle
+      - if @chronicle.present?
+        = link_to '<i class="icon-edit"></i> edit'.html_safe, edit_chronicle_path(@chronicle), class: 'btn'
+      - else 
+        = link_to '<i class="icon-plus"></i> add'.html_safe, new_chronicle_path, class: 'btn'
 
-    = @chronicle.try :mood
-    = @chronicle.try :summary
+  - if @chronicle
+    %p
+      mood:
+      - if @chronicle.mood == "happy"
+        <i class="icon-thumbs-up"></i>
+      - else
+        <i class="icon-thumbs-down"></i>
+    %p
+      summary:
+      = @chronicle.summary

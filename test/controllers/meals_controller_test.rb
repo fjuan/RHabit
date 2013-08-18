@@ -21,7 +21,7 @@ class MealsControllerTest < ActionController::TestCase
       post :create, meal: { datetime: @meal.datetime, description: @meal.description, kind: @meal.kind, where: @meal.where }
     end
 
-    assert_redirected_to meal_path(assigns(:meal))
+    assert_redirected_to root_path(date: @meal.datetime.to_date)
   end
 
   test "should show meal" do

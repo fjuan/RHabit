@@ -17,11 +17,12 @@ class ChroniclesControllerTest < ActionController::TestCase
   end
 
   test "should create chronicle" do
+    date = @chronicle.date+1.day
     assert_difference('Chronicle.count') do
-      post :create, chronicle: { date: @chronicle.date+1.day, mood: @chronicle.mood, summary: @chronicle.summary }
+      post :create, chronicle: { date: date, mood: @chronicle.mood, summary: @chronicle.summary }
     end
 
-    assert_redirected_to chronicle_path(assigns(:chronicle))
+    assert_redirected_to root_path(date: date)
   end
 
   test "should show chronicle" do

@@ -10,4 +10,8 @@ class Meal < ActiveRecord::Base
   def summary
     "#{datetime.strftime('%Y-%m-%d at %H:%M')} - #{kind} at #{where}: #{description}"
   end
+
+  def date
+    datetime.to_date
+  end
 end

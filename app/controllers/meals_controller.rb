@@ -28,7 +28,7 @@ class MealsController < ApplicationController
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
+        format.html { redirect_to root_path(date: @meal.date), notice: 'Meal was successfully created.' }
         format.json { render action: 'show', status: :created, location: @meal }
       else
         format.html { render action: 'new' }

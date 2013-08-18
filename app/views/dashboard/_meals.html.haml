@@ -1,7 +1,9 @@
 %section
   .page-header
-    %h1 Meals
+    %h1
+      Meals
+      = link_to '<i class="icon-plus"></i> add'.html_safe, new_meal_path, class: 'btn'
 
   %ul
     - @meals.each do |meal|
-      %li= meal.description
+      %li= meal.summary

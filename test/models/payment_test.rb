@@ -13,4 +13,8 @@ class PaymentTest < ActiveSupport::TestCase
     summary = "2013-08-17 at 10:35 - 1.5 (cash) on fruits"
     assert_equal(summary, payments(:one).summary)
   end
+
+  test "date" do
+    assert_equal(Date.new(2013,8,17), payments(:one).date)
+  end
 end

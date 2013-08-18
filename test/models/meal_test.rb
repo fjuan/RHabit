@@ -13,4 +13,8 @@ class MealTest < ActiveSupport::TestCase
     summary = "2013-08-18 at 10:42 - snack at home: Chocolate cookies"
     assert_equal(summary, meals(:two).summary)
   end
+
+  test "date" do
+    assert_equal(Date.new(2013,8,18), meals(:one).date)
+  end
 end
