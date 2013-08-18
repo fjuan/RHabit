@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  date: 2013-08-18
+  date: 2013-08-16
   summary: MyText
   mood: MyString
 
 two:
-  date: 2013-08-18
+  date: 2013-08-15
   summary: MyText
   mood: MyString
