@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @chronicle.date
+%p
+  %b Summary:
+  = @chronicle.summary
+%p
+  %b Mood:
+  = @chronicle.mood
+
+= link_to 'Edit', edit_chronicle_path(@chronicle)
+\|
+= link_to 'Back', chronicles_path

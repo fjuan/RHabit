@@ -1,0 +1,23 @@
+%h1 Listing chronicles
+
+%table
+  %tr
+    %th Date
+    %th Summary
+    %th Mood
+    %th
+    %th
+    %th
+
+  - @chronicles.each do |chronicle|
+    %tr
+      %td= chronicle.date
+      %td= chronicle.summary
+      %td= chronicle.mood
+      %td= link_to 'Show', chronicle
+      %td= link_to 'Edit', edit_chronicle_path(chronicle)
+      %td= link_to 'Destroy', chronicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Chronicle', new_chronicle_path

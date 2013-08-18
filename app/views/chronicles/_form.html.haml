@@ -1,0 +1,10 @@
+= simple_form_for(@chronicle) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :date
+    = f.input :summary
+    = f.input :mood
+
+  .actions
+    = f.button :submit
