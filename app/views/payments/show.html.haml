@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Datetime:
+  = @payment.datetime
+%p
+  %b Category:
+  = @payment.category
+%p
+  %b Method:
+  = @payment.method
+%p
+  %b Shared:
+  = @payment.shared
+%p
+  %b Description:
+  = @payment.description
+%p
+  %b Amount:
+  = @payment.amount
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path

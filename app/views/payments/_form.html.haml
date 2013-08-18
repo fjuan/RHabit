@@ -1,0 +1,13 @@
+= simple_form_for(@payment) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :datetime
+    = f.input :category
+    = f.input :method
+    = f.input :shared
+    = f.input :description
+    = f.input :amount
+
+  .actions
+    = f.button :submit
