@@ -1,0 +1,4 @@
+RHabit
+======
+
+Personal activities tracker
