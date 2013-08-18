@@ -1,5 +1,7 @@
-%h1 Payments
+%section
+  .page-header
+    %h1 Payments
 
-%ul
-  - @payments.each do |payment|
-    %li= payment.amount
+  %ul
+    - @payments.each do |payment|
+      %li= payment.amount

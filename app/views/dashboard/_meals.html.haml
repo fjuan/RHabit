@@ -1,6 +1,7 @@
-%h1 Meals
+%section
+  .page-header
+    %h1 Meals
 
-%ul
-  - @meals.each do |meal|
-    %li= meal.description
-    
+  %ul
+    - @meals.each do |meal|
+      %li= meal.description

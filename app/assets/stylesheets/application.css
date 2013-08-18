@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+section {
+  margin-top: 60px;
+}
+
 @media (min-width: 980px) {
   body {
     padding-top: 100px;
