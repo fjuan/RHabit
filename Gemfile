@@ -39,6 +39,10 @@ gem "twitter-bootstrap-rails"
 # Use simple_form
 gem 'simple_form'
 
+# Use simple-navigation
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
