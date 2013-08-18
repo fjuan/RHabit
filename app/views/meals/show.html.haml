@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Datetime:
+  = @meal.datetime
+%p
+  %b Where:
+  = @meal.where
+%p
+  %b Kind:
+  = @meal.kind
+%p
+  %b Description:
+  = @meal.description
+
+= link_to 'Edit', edit_meal_path(@meal)
+\|
+= link_to 'Back', meals_path

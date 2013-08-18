@@ -1,0 +1,11 @@
+= simple_form_for(@meal) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :datetime
+    = f.input :where
+    = f.input :kind
+    = f.input :description
+
+  .actions
+    = f.button :submit

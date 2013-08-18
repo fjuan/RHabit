@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818083512) do
+ActiveRecord::Schema.define(version: 20130818084219) do
+
+  create_table "meals", force: true do |t|
+    t.datetime "datetime"
+    t.string   "where"
+    t.string   "kind"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payments", force: true do |t|
     t.datetime "datetime"

@@ -1,4 +1,6 @@
 RHabit::Application.routes.draw do
+  resources :meals
+
   resources :payments
 
   root 'payments#index'
