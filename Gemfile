@@ -36,6 +36,9 @@ gem "less-rails"
 # Twitter Bootstrap stylesheets
 gem "twitter-bootstrap-rails"
 
+# Use simple_form
+gem 'simple_form'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
