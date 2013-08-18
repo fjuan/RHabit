@@ -2,5 +2,7 @@ class Chronicle < ActiveRecord::Base
 
   STATES_OF_MIND = %w(happy angry sad worried)
 
-  validates :date, :mood, :summary, presence: true
+  validates :date, presence: true, uniqueness: true
+  validates :mood, :summary, presence: true
+
 end
