@@ -3,8 +3,8 @@
 
   .inputs
     = f.input :datetime
-    = f.input :where
-    = f.input :kind
+    = f.input :where, collection: Meal::LOCATIONS
+    = f.input :kind, collection: Meal::KINDS
     = f.input :description
 
   .actions
