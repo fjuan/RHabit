@@ -3,9 +3,9 @@
     %h1
       Day chronicle
       - if @chronicle.present?
-        = link_to '<i class="icon-edit"></i> edit'.html_safe, edit_chronicle_path(@chronicle), class: 'btn'
+        = link_to "<i class='icon-edit'></i> #{t('helpers.links.edit')}".html_safe, edit_chronicle_path(@chronicle), class: 'btn'
       - else 
-        = link_to '<i class="icon-plus"></i> add'.html_safe, new_chronicle_path, class: 'btn'
+        = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_chronicle_path, class: 'btn'
 
   - if @chronicle
     %p

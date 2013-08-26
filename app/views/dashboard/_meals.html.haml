@@ -2,7 +2,7 @@
   .page-header
     %h1
       Meals
-      = link_to '<i class="icon-plus"></i> add'.html_safe, new_meal_path, class: 'btn'
+      = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_meal_path, class: 'btn'
 
   %ul
     - @meals.each do |meal|
