@@ -1,0 +1,28 @@
+--- 
+es:
+  activerecord:
+    models:
+      chronicle: "Resumen del día"
+      meal:
+        one: "Comida"
+        other: "Comidas"
+      payment:
+        one: "Gasto"
+        other: "Gastos"
+    attributes:
+      chronicle:
+        date: "Fecha"
+        mood: "Estado"
+        summary: "Resumen"
+      meal:
+        datetime: "Fecha y hora"
+        where: "Dónde"
+        kind: "Tipo"
+        description: "Descripción"
+      payment:
+        datetime: "Fecha y hora"
+        category: "Categoría"
+        method: "Forma de pago"
+        shared: "Compartido"
+        description: "Descripción"
+        amount: "Cantidad"

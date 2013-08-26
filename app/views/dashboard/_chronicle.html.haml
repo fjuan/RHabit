@@ -1,7 +1,7 @@
 %section
   .page-header
     %h1
-      Day chronicle
+      = Chronicle.model_name.human
       - if @chronicle.present?
         = link_to "<i class='icon-edit'></i> #{t('helpers.links.edit')}".html_safe, edit_chronicle_path(@chronicle), class: 'btn'
       - else 
