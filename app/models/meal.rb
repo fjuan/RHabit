@@ -7,8 +7,8 @@ class Meal < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :by_date, ->(date) { where("datetime > ? and datetime < ?", date.beginning_of_day, date.end_of_day) }
-  scope :ordered, order("datetime DESC")
+  scope :by_date, ->(date) { where("meals.datetime > ? and meals.datetime < ?", date.beginning_of_day, date.end_of_day) }
+  scope :ordered, -> { order("meals.datetime DESC") }
 
   def summary
     "#{datetime.strftime('%Y-%m-%d at %H:%M')} - #{kind} at #{where}: #{description}"

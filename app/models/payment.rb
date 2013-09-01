@@ -8,8 +8,8 @@ class Payment < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :by_date, ->(date) { where("datetime > ? and datetime < ?", date.beginning_of_day, date.end_of_day) }
-  scope :ordered, order("datetime DESC")
+  scope :by_date, ->(date) { where("payments.datetime > ? and payments.datetime < ?", date.beginning_of_day, date.end_of_day) }
+  scope :ordered, -> { order("payments.datetime DESC") }
 
   def summary
     "#{datetime.strftime('%Y-%m-%d at %H:%M')} - #{amount} (#{method}) on #{description}"

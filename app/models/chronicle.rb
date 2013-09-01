@@ -7,6 +7,6 @@ class Chronicle < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :ordered, order("date DESC")
+  scope :ordered, -> { order("chronicles.date DESC") }
 
 end
