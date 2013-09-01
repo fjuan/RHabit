@@ -5,6 +5,8 @@ class Chronicle < ActiveRecord::Base
   validates :date, presence: true, uniqueness: true
   validates :mood, :summary, presence: true
 
+  belongs_to :user
+
   scope :ordered, order("date DESC")
 
 end

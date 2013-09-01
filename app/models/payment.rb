@@ -6,6 +6,8 @@ class Payment < ActiveRecord::Base
   validates :amount, :datetime, :description, :method, presence: true
   validates :amount, numericality: true
 
+  belongs_to :user
+
   scope :by_date, ->(date) { where("datetime > ? and datetime < ?", date.beginning_of_day, date.end_of_day) }
   scope :ordered, order("datetime DESC")
 
