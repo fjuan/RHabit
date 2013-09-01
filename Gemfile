@@ -64,6 +64,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'newrelic_rpm'
 end
 
 # Use ActiveModel has_secure_password
