@@ -1,8 +1,8 @@
 SimpleNavigation::Configuration.run do |navigation|  
   navigation.items do |primary|
-    primary.item :payments,   'Payments',   payments_path,    highlights_on: :subpath
-    primary.item :meals,      'Meals',      meals_path,       highlights_on: :subpath
-    primary.item :chronicles, 'Chronicles', chronicles_path,  highlights_on: :subpath
+    primary.item :payments,   Payment.model_name.human(count: 2),   payments_path,   highlights_on: :subpath
+    primary.item :meals,      Meal.model_name.human(count: 2),      meals_path,      highlights_on: :subpath
+    primary.item :chronicles, Chronicle.model_name.human(count: 2), chronicles_path, highlights_on: :subpath
 
     primary.dom_class = 'nav'
   end

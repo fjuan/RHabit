@@ -1,13 +1,15 @@
-%h1 Listing payments
+%section
+  .page-header
+    %h1= Payment.model_name.human(count: 2)
 
 %table
   %tr
-    %th Datetime
-    %th Category
-    %th Method
-    %th Shared
-    %th Description
-    %th Amount
+    %th= Payment.human_attribute_name :datetime
+    %th= Payment.human_attribute_name :category
+    %th= Payment.human_attribute_name :method
+    %th= Payment.human_attribute_name :shared
+    %th= Payment.human_attribute_name :description
+    %th= Payment.human_attribute_name :amount
     %th
     %th
     %th
@@ -20,10 +22,10 @@
       %td= payment.shared
       %td= payment.description
       %td= payment.amount
-      %td= link_to 'Show', payment
-      %td= link_to 'Edit', edit_payment_path(payment)
-      %td= link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t('show'), payment
+      %td= link_to t('edit'), edit_payment_path(payment)
+      %td= link_to t('destroy'), payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Payment', new_payment_path
+= link_to t('new', :model => Payment.model_name.human), new_payment_path

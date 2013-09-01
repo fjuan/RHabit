@@ -9,11 +9,11 @@
 
   - if @chronicle
     %p
-      mood:
+      = Chronicle.human_attribute_name(:mood) + ':'
       - if @chronicle.mood == "happy"
         <i class="icon-thumbs-up"></i>
       - else
         <i class="icon-thumbs-down"></i>
     %p
-      summary:
+      = Chronicle.human_attribute_name(:summary) + ':'
       = @chronicle.summary

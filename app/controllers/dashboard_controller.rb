@@ -3,8 +3,8 @@ class DashboardController < ApplicationController
 
   def index
     @payments  = Payment.by_date(@date)
-    @meals     = Meal.by_date(@date)
-    @chronicle = Chronicle.find_by_date(@date.to_date)
+    @meals     = Meal.ordered.by_date(@date)
+    @chronicle = Chronicle.ordered.find_by_date(@date.to_date)
   end
 
   private

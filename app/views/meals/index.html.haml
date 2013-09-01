@@ -1,11 +1,13 @@
-%h1 Listing meals
+%section
+  .page-header
+    %h1= Meal.model_name.human(count: 2)
 
 %table
   %tr
-    %th Datetime
-    %th Where
-    %th Kind
-    %th Description
+    %th= Meal.human_attribute_name :datetime
+    %th= Meal.human_attribute_name :where
+    %th= Meal.human_attribute_name :kind
+    %th= Meal.human_attribute_name :description
     %th
     %th
     %th
@@ -16,10 +18,10 @@
       %td= meal.where
       %td= meal.kind
       %td= meal.description
-      %td= link_to 'Show', meal
-      %td= link_to 'Edit', edit_meal_path(meal)
-      %td= link_to 'Destroy', meal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t('show'), meal
+      %td= link_to t('edit'), edit_meal_path(meal)
+      %td= link_to t('destroy'), meal, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Meal', new_meal_path
+= link_to t('new', :model => Meal.model_name.human), new_meal_path

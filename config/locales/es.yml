@@ -1,8 +1,24 @@
 --- 
 es:
+  edit: "Editar %{model}"
+  new: "Crear %{model}"
+  
+  back: "Atrás"
+
+  show: "Mostrar"
+  edit: "Editar"
+  destroy: "Eliminar"
+  
+  happy: "Feliz"
+  angry: "Enfadado"
+  sad: "Triste"
+  worried: "Preocupado"
+
   activerecord:
     models:
-      chronicle: "Resumen del día"
+      chronicle:
+        one: "Resumen del día"
+        other: "Resúmenes del día"
       meal:
         one: "Comida"
         other: "Comidas"
@@ -12,7 +28,7 @@ es:
     attributes:
       chronicle:
         date: "Fecha"
-        mood: "Estado"
+        mood: "Estado de ánimo"
         summary: "Resumen"
       meal:
         datetime: "Fecha y hora"

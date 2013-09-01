@@ -1,7 +1,9 @@
-%h1 Editing payment
+%section
+  .page-header
+    %h1= t('edit', :model => Payment.model_name.human)
 
 = render 'form'
 
-= link_to 'Show', @payment
+= link_to t('show'), @payment
 \|
-= link_to 'Back', payments_path
+= link_to t('back'), payments_path

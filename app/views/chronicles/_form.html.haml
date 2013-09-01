@@ -4,7 +4,7 @@
   .inputs
     = f.input :date
     = f.input :summary
-    = f.input :mood, collection: Chronicle::STATES_OF_MIND
+    = f.input :mood, collection: @moods
 
   .actions
     = f.button :submit

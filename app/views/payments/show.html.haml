@@ -1,8 +1,9 @@
-%p#notice= notice
+%section
+  .page-header
+    %h1
+      = Payment.model_name.human
+      = @payment.datetime
 
-%p
-  %b Datetime:
-  = @payment.datetime
 %p
   %b Category:
   = @payment.category
@@ -19,6 +20,8 @@
   %b Amount:
   = @payment.amount
 
-= link_to 'Edit', edit_payment_path(@payment)
+%br
+
+= link_to t('edit'), edit_payment_path(@payment)
 \|
-= link_to 'Back', payments_path
+= link_to t('back'), payments_path

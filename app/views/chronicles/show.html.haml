@@ -1,15 +1,18 @@
-%p#notice= notice
+%section
+  .page-header
+    %h1
+      = Chronicle.model_name.human
+      = @chronicle.date
 
 %p
-  %b Date:
-  = @chronicle.date
-%p
-  %b Summary:
+  %b= Chronicle.human_attribute_name :summary
   = @chronicle.summary
 %p
-  %b Mood:
-  = @chronicle.mood
+  %b= Chronicle.human_attribute_name :mood
+  = t(@chronicle.mood)
 
-= link_to 'Edit', edit_chronicle_path(@chronicle)
+%br 
+
+= link_to t('edit'), edit_chronicle_path(@chronicle)
 \|
-= link_to 'Back', chronicles_path
+= link_to t('back'), chronicles_path
