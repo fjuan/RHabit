@@ -32,9 +32,9 @@ es:
     - viernes
     - sábado
     formats:
-      default: ! '%e/%m/%Y'
-      long: ! '%e de %B de %Y'
-      short: ! '%e de %b'
+      default: ! '%d-%m-%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
       month_year: ! '%b %y'
     month_names:
     - 

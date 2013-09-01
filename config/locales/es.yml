@@ -2,6 +2,7 @@
 es:
   'yes': "si"
   'no': "no"
+  go: "ir"
 
   edit: "Editar %{model}"
   new: "Crear %{model}"

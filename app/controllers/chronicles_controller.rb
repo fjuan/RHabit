@@ -29,7 +29,7 @@ class ChroniclesController < ApplicationController
 
     respond_to do |format|
       if @chronicle.save
-        format.html { redirect_to root_path(date: @chronicle.date), notice: 'Chronicle was successfully created.' }
+        format.html { redirect_to root_path(date: I18n.l(@chronicle.date)), notice: 'Chronicle was successfully created.' }
         format.json { render action: 'show', status: :created, location: @chronicle }
       else
         format.html { render action: 'new' }
