@@ -3,8 +3,8 @@
 
   .inputs
     = f.input :datetime
-    = f.input :category, collection: Payment::CATEGORIES
-    = f.input :method, collection: Payment::METHODS
+    = f.input :category, collection: @payment_categories
+    = f.input :method, collection: @payment_methods
     = f.input :shared
     = f.input :description
     = f.input :amount

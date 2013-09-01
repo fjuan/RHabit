@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :set_date
+  before_action :set_date
 
   def index
     @payments  = Payment.by_date(@date)

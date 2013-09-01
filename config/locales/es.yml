@@ -1,5 +1,8 @@
 --- 
 es:
+  'yes': "si"
+  'no': "no"
+
   edit: "Editar %{model}"
   new: "Crear %{model}"
   
@@ -9,10 +12,37 @@ es:
   edit: "Editar"
   destroy: "Eliminar"
   
-  happy: "Feliz"
-  angry: "Enfadado"
-  sad: "Triste"
-  worried: "Preocupado"
+  happy: "feliz"
+  angry: "enfadado"
+  sad: "triste"
+  worried: "preocupado"
+
+  breakfast: "desayuno"
+  lunch: "comida"
+  dinner: "cena"
+  snack: "tentempié"
+
+  home: "casa"
+  office: "oficina"
+  restaurant: "restaurante"
+  journey: "de viaje"
+
+  home-rent: "casa-alquiler"
+  home-services: "casa-servicios"
+  home-cleaning: "casa-limpieza"
+  food: "comida"
+  restaurant: "restaurante"
+  transportation: "transporte"
+  clothing: "ropa"
+  personal: "personal"
+  education: "formación"
+  travels: "viajes"
+  utilities: "utensilios"
+
+  cash: "efectivo"
+  credit: "tarjeta de crédito"
+  debit: "tarjeta de débito"
+  transfer: "transferencia"
 
   activerecord:
     models:

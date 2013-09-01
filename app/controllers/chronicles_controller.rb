@@ -1,6 +1,6 @@
 class ChroniclesController < ApplicationController
   before_action :set_chronicle, only: [:show, :edit, :update, :destroy]
-  before_filter :fill_selects, only: [:new, :create, :edit, :update]
+  before_action :fill_selects, only: [:new, :create, :edit, :update]
 
   # GET /chronicles
   # GET /chronicles.json

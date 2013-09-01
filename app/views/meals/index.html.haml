@@ -2,25 +2,28 @@
   .page-header
     %h1= Meal.model_name.human(count: 2)
 
-%table
-  %tr
-    %th= Meal.human_attribute_name :datetime
-    %th= Meal.human_attribute_name :where
-    %th= Meal.human_attribute_name :kind
-    %th= Meal.human_attribute_name :description
-    %th
-    %th
-    %th
-
-  - @meals.each do |meal|
+%table.table.table-striped
+  %thead
     %tr
-      %td= meal.datetime
-      %td= meal.where
-      %td= meal.kind
-      %td= meal.description
-      %td= link_to t('show'), meal
-      %td= link_to t('edit'), edit_meal_path(meal)
-      %td= link_to t('destroy'), meal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= Meal.human_attribute_name :datetime
+      %th= Meal.human_attribute_name :where
+      %th= Meal.human_attribute_name :kind
+      %th= Meal.human_attribute_name :description
+      %th
+
+  %tbody
+    - @meals.each do |meal|
+      %tr
+        %td= meal.datetime
+        %td=t meal.where
+        %td=t meal.kind
+        %td= meal.description
+        %td
+          = link_to t('show'), meal
+          \|
+          = link_to t('edit'), edit_meal_path(meal)
+          \|
+          = link_to t('destroy'), meal, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

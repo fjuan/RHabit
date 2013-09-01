@@ -2,23 +2,26 @@
   .page-header
     %h1= Chronicle.model_name.human(count: 2)
 
-%table
-  %tr
-    %th= Chronicle.human_attribute_name(:date)
-    %th= Chronicle.human_attribute_name(:summary)
-    %th= Chronicle.human_attribute_name(:mood)
-    %th
-    %th
-    %th
-
-  - @chronicles.each do |chronicle|
+%table.table.table-striped
+  %thead
     %tr
-      %td= chronicle.date
-      %td= chronicle.summary
-      %td= t(chronicle.mood)
-      %td= link_to t('show'), chronicle
-      %td= link_to t('edit'), edit_chronicle_path(chronicle)
-      %td= link_to t('destroy'), chronicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= Chronicle.human_attribute_name(:date)
+      %th= Chronicle.human_attribute_name(:summary)
+      %th= Chronicle.human_attribute_name(:mood)
+      %th
+
+  %tbody
+    - @chronicles.each do |chronicle|
+      %tr
+        %td= chronicle.date
+        %td= chronicle.summary
+        %td=t chronicle.mood
+        %td
+          = link_to t('show'), chronicle
+          \|
+          = link_to t('edit'), edit_chronicle_path(chronicle)
+          \|
+          = link_to t('destroy'), chronicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

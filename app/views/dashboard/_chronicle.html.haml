@@ -2,6 +2,10 @@
   .page-header
     %h1
       = Chronicle.model_name.human
+      - if @chronicle.mood == "happy"
+        <i class="icon-thumbs-up"></i>
+      - else
+        <i class="icon-thumbs-down"></i>
       - if @chronicle.present?
         = link_to "<i class='icon-edit'></i> #{t('helpers.links.edit')}".html_safe, edit_chronicle_path(@chronicle), class: 'btn'
       - else 
@@ -10,10 +14,7 @@
   - if @chronicle
     %p
       = Chronicle.human_attribute_name(:mood) + ':'
-      - if @chronicle.mood == "happy"
-        <i class="icon-thumbs-up"></i>
-      - else
-        <i class="icon-thumbs-down"></i>
+      =t @chronicle.mood
     %p
       = Chronicle.human_attribute_name(:summary) + ':'
       = @chronicle.summary

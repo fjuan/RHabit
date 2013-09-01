@@ -5,19 +5,19 @@
       = @payment.datetime
 
 %p
-  %b Category:
+  %b= Payment.human_attribute_name :category
   = @payment.category
 %p
-  %b Method:
+  %b= Payment.human_attribute_name :method
   = @payment.method
 %p
-  %b Shared:
-  = @payment.shared
+  %b= Payment.human_attribute_name :shared
+  =t @payment.shared? ? 'yes' : 'no'
 %p
-  %b Description:
+  %b= Payment.human_attribute_name :description
   = @payment.description
 %p
-  %b Amount:
+  %b= Payment.human_attribute_name :amount
   = @payment.amount
 
 %br

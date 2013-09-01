@@ -5,13 +5,13 @@
       = @meal.datetime
 
 %p
-  %b Where:
-  = @meal.where
+  %b= Meal.human_attribute_name :where
+  =t @meal.where
 %p
-  %b Kind:
-  = @meal.kind
+  %b= Meal.human_attribute_name :kind
+  =t @meal.kind
 %p
-  %b Description:
+  %b= Meal.human_attribute_name :description
   = @meal.description
 
 %br

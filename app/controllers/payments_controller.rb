@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :fill_selects, only: [:new, :create, :edit, :update]
 
   # GET /payments
   # GET /payments.json
@@ -62,6 +63,11 @@ class PaymentsController < ApplicationController
   end
 
   private
+    def fill_selects
+      @payment_categories = Payment::CATEGORIES.map{|s| [t(s), s]}
+      @payment_methods    = Payment::METHODS.map{|s| [t(s), s]}
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_payment
       @payment = Payment.find(params[:id])

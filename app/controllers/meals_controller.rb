@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :fill_selects, only: [:new, :create, :edit, :update]
 
   # GET /meals
   # GET /meals.json
@@ -62,6 +63,11 @@ class MealsController < ApplicationController
   end
 
   private
+    def fill_selects
+      @meal_kinds     = Meal::KINDS.map{|s| [t(s), s]}
+      @meal_locations = Meal::LOCATIONS.map{|s| [t(s), s]}
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
       @meal = Meal.find(params[:id])
