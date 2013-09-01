@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
-  has_many :chronicles
-  has_many :meals
-  has_many :payments
+  has_many :chronicles, dependent: :destroy
+  has_many :meals,      dependent: :destroy
+  has_many :payments,   dependent: :destroy
 
 end
