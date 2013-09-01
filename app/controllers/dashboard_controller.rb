@@ -2,9 +2,9 @@ class DashboardController < ApplicationController
   before_action :set_date
 
   def index
-    @payments  = Payment.by_date(@date)
-    @meals     = Meal.ordered.by_date(@date)
-    @chronicle = Chronicle.ordered.find_by_date(@date.to_date)
+    @payments  = current_user.payments.ordered.by_date(@date)
+    @meals     = current_user.meals.ordered.by_date(@date)
+    @chronicle = current_user.chronicles.find_by_date(@date.to_date)
   end
 
   private

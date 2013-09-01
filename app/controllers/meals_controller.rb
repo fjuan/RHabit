@@ -5,7 +5,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.ordered.all
+    @meals = current_user.meals.ordered
   end
 
   # GET /meals/1
@@ -15,7 +15,7 @@ class MealsController < ApplicationController
 
   # GET /meals/new
   def new
-    @meal = Meal.new
+    @meal = current_user.meals.new
   end
 
   # GET /meals/1/edit
@@ -25,11 +25,11 @@ class MealsController < ApplicationController
   # POST /meals
   # POST /meals.json
   def create
-    @meal = Meal.new(meal_params)
+    @meal = current_user.meals.new(meal_params)
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to root_path(date: I18n.l(@meal.date)), notice: t('notice.successfully_created', model: Meal.model_name.human) }
+        format.html { redirect_to root_path(date: I18n.l(@meal.date)), notice: t('flash_message.notice.successfully_created', model: Meal.model_name.human) }
         format.json { render action: 'show', status: :created, location: @meal }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class MealsController < ApplicationController
   def update
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to @meal, notice: t('notice.successfully_updated', model: Meal.model_name.human) }
+        format.html { redirect_to @meal, notice: t('flash_message.notice.successfully_updated', model: Meal.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,7 +70,7 @@ class MealsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
-      @meal = Meal.find(params[:id])
+      @meal = current_user.meals.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

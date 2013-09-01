@@ -47,9 +47,12 @@ es:
   debit: "tarjeta de débito"
   transfer: "transferencia"
 
-  notice:
-    successfully_created: '%{model} se ha creado correctamente'
-    successfully_updated: '%{model} se ha actualizado correctamente'
+  flash_message:
+    notice:
+      successfully_created: '%{model} se ha creado correctamente'
+      successfully_updated: '%{model} se ha actualizado correctamente'
+    error:
+      not_found: "No se ha encontrado el registro deseado"
 
   activerecord:
     models:

@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.ordered.all
+    @payments = current_user.payments.ordered.all
   end
 
   # GET /payments/1
@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = Payment.new
+    @payment = current_user.payments.new
   end
 
   # GET /payments/1/edit
@@ -25,11 +25,11 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = current_user.payments.new(payment_params)
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to root_path(date: I18n.l(@payment.date)), notice: t('notice.successfully_created', model: Payment.model_name.human) }
+        format.html { redirect_to root_path(date: I18n.l(@payment.date)), notice: t('flash_message.notice.successfully_created', model: Payment.model_name.human) }
         format.json { render action: 'show', status: :created, location: @payment }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to @payment, notice: t('notice.successfully_updated', model: Payment.model_name.human) }
+        format.html { redirect_to @payment, notice: t('flash_message.notice.successfully_updated', model: Payment.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,7 +70,7 @@ class PaymentsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_payment
-      @payment = Payment.find(params[:id])
+      @payment = current_user.payments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

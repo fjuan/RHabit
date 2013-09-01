@@ -5,7 +5,7 @@ class ChroniclesController < ApplicationController
   # GET /chronicles
   # GET /chronicles.json
   def index
-    @chronicles = Chronicle.ordered.all
+    @chronicles = current_user.chronicles.ordered.all
   end
 
   # GET /chronicles/1
@@ -15,7 +15,7 @@ class ChroniclesController < ApplicationController
 
   # GET /chronicles/new
   def new
-    @chronicle = Chronicle.new
+    @chronicle = current_user.chronicles.new
   end
 
   # GET /chronicles/1/edit
@@ -25,11 +25,11 @@ class ChroniclesController < ApplicationController
   # POST /chronicles
   # POST /chronicles.json
   def create
-    @chronicle = Chronicle.new(chronicle_params)
+    @chronicle = current_user.chronicles.new(chronicle_params)
 
     respond_to do |format|
       if @chronicle.save
-        format.html { redirect_to root_path(date: I18n.l(@chronicle.date)), notice: t('notice.successfully_created', model: Chronicle.model_name.human) }
+        format.html { redirect_to root_path(date: I18n.l(@chronicle.date)), notice: t('flash_message.notice.successfully_created', model: Chronicle.model_name.human) }
         format.json { render action: 'show', status: :created, location: @chronicle }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class ChroniclesController < ApplicationController
   def update
     respond_to do |format|
       if @chronicle.update(chronicle_params)
-        format.html { redirect_to @chronicle, notice: t('notice.successfully_updated', model: Chronicle.model_name.human) }
+        format.html { redirect_to @chronicle, notice: t('flash_message.notice.successfully_updated', model: Chronicle.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,7 +69,7 @@ class ChroniclesController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_chronicle
-      @chronicle = Chronicle.find(params[:id])
+      @chronicle = current_user.chronicles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
