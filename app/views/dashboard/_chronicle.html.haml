@@ -13,10 +13,9 @@
           - else 
             = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_chronicle_path, class: 'btn'
       .span3
-        %p
-          = form_tag root_path, :method => 'get', :class => 'form-search' do
-            = text_field_tag :date, params[:date], :class => 'input-small datepicker'
-            = submit_tag t('go'), :class => 'btn'
+        = form_tag root_path, :method => 'get', :class => 'form-search' do
+          = text_field_tag :date, params[:date], :class => 'input-small datepicker'
+          = submit_tag t('go'), :class => 'btn'
 
   - if @chronicle
     %p

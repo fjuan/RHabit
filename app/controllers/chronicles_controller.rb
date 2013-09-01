@@ -29,7 +29,7 @@ class ChroniclesController < ApplicationController
 
     respond_to do |format|
       if @chronicle.save
-        format.html { redirect_to root_path(date: I18n.l(@chronicle.date)), notice: 'Chronicle was successfully created.' }
+        format.html { redirect_to root_path(date: I18n.l(@chronicle.date)), notice: t('notice.successfully_created', model: Chronicle.model_name.human) }
         format.json { render action: 'show', status: :created, location: @chronicle }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class ChroniclesController < ApplicationController
   def update
     respond_to do |format|
       if @chronicle.update(chronicle_params)
-        format.html { redirect_to @chronicle, notice: 'Chronicle was successfully updated.' }
+        format.html { redirect_to @chronicle, notice: t('notice.successfully_updated', model: Chronicle.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

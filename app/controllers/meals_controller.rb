@@ -29,7 +29,7 @@ class MealsController < ApplicationController
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to root_path(date: I18n.l(@meal.date)), notice: 'Meal was successfully created.' }
+        format.html { redirect_to root_path(date: I18n.l(@meal.date)), notice: t('notice.successfully_created', model: Meal.model_name.human) }
         format.json { render action: 'show', status: :created, location: @meal }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class MealsController < ApplicationController
   def update
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to @meal, notice: 'Meal was successfully updated.' }
+        format.html { redirect_to @meal, notice: t('notice.successfully_updated', model: Meal.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

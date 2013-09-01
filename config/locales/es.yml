@@ -45,6 +45,10 @@ es:
   debit: "tarjeta de débito"
   transfer: "transferencia"
 
+  notice:
+    successfully_created: '%{model} se ha creado correctamente'
+    successfully_updated: '%{model} se ha actualizado correctamente'
+
   activerecord:
     models:
       chronicle:

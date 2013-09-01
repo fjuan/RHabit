@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to root_path(date: I18n.l(@payment.date)), notice: 'Payment was successfully created.' }
+        format.html { redirect_to root_path(date: I18n.l(@payment.date)), notice: t('notice.successfully_created', model: Payment.model_name.human) }
         format.json { render action: 'show', status: :created, location: @payment }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
+        format.html { redirect_to @payment, notice: t('notice.successfully_updated', model: Payment.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
