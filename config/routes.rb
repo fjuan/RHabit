@@ -5,6 +5,8 @@ RHabit::Application.routes.draw do
 
   resources :payments
 
+  devise_for :users
+
   get "dashboard/index"
 
   root 'dashboard#index'

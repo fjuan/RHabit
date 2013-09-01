@@ -46,6 +46,9 @@ gem 'simple_form'
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
 
+# Add devise for user authentication
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

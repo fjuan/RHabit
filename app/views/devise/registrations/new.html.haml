@@ -1,0 +1,15 @@
+%section
+  .page-header
+    %h1= t("devise.links.sign_up")
+
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+
+  .form-inputs
+    = f.input :email, :required => true, :autofocus => true
+    = f.input :password, :required => true
+    = f.input :password_confirmation, :required => true
+
+  .form-actions
+    = f.button :submit, "Sign up"
+
+= render "devise/shared/links"
