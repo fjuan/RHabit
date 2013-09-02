@@ -17,4 +17,8 @@ class Meal < ActiveRecord::Base
   def date
     datetime.to_date
   end
+
+  def time
+    datetime.strftime('%H:%M')
+  end
 end

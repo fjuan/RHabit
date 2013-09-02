@@ -78,6 +78,7 @@ es:
         where: "Dónde"
         kind: "Tipo"
         description: "Descripción"
+        time: "Hora"
       payment:
         datetime: "Fecha y hora"
         category: "Categoría"
@@ -85,6 +86,7 @@ es:
         shared: "Compartido"
         description: "Descripción"
         amount: "Cantidad"
+        time: "Hora"
       user:
         current_password: "Contraseña actual"
         email: "Correo electrónico"

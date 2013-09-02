@@ -9,7 +9,7 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Payment.human_attribute_name :datetime
+      %th= Payment.human_attribute_name :time
       %th= Payment.human_attribute_name :method
       %th= Payment.human_attribute_name :description
       %th= Payment.human_attribute_name :amount
@@ -18,7 +18,7 @@
   %tbody
     - @payments.each do |payment|
       %tr
-        %td= payment.datetime
+        %td= payment.time
         %td=t payment.method
         %td=t payment.description
         %td= payment.amount
