@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901092233) do
+ActiveRecord::Schema.define(version: 20130901094319) do
 
   create_table "chronicles", force: true do |t|
     t.date     "date"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20130901092233) do
     t.integer  "user_id"
   end
 
+  add_index "chronicles", ["user_id"], name: "index_chronicles_on_user_id"
+
   create_table "meals", force: true do |t|
     t.datetime "datetime"
     t.string   "where"
@@ -31,6 +33,8 @@ ActiveRecord::Schema.define(version: 20130901092233) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "meals", ["user_id"], name: "index_meals_on_user_id"
 
   create_table "payments", force: true do |t|
     t.datetime "datetime"
@@ -43,6 +47,8 @@ ActiveRecord::Schema.define(version: 20130901092233) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
