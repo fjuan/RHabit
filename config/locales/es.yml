@@ -48,6 +48,11 @@ es:
   transfer: "transferencia"
   direct debit: "domiciliación"
 
+  running: "correr"
+  padel: "pádel"
+  tennis: "tenis"
+  cycling: "bicicleta"
+  
   flash_message:
     notice:
       successfully_created: '%{model} se ha creado correctamente'
@@ -69,6 +74,9 @@ es:
       user:
         one: "Usuario"
         other: "Usuarios"
+      workout:
+        one: "Entrenamiento"
+        other: "Entrenamientos"
     attributes:
       chronicle:
         date: "Fecha"
@@ -94,3 +102,10 @@ es:
         password: "Contraseña"
         password_confirmation: "Confirmación de la contraseña"
         remember_me: "Recordarme"
+      workout:
+        datetime: "Fecha y hora"
+        time: "Hora"
+        duration: "Duración"
+        sport: "Deporte"
+        comment: "Comentario"
+        where: "Dónde"        

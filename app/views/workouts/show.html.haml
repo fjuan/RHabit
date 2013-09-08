@@ -1,0 +1,24 @@
+%section
+  .page-header
+    %h1
+      = Workout.model_name.human
+      = @workout.datetime
+
+%p
+  %b= Workout.human_attribute_name :duration
+  = @workout.duration
+%p
+  %b= Workout.human_attribute_name :sport
+  =t @workout.sport
+%p
+  %b= Workout.human_attribute_name :where
+  = @workout.where
+%p
+  %b= Workout.human_attribute_name :comment
+  = @workout.comment
+
+%br
+
+= link_to t('edit'), edit_workout_path(@workout)
+\|
+= link_to t('back'), workouts_path

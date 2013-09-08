@@ -1,0 +1,32 @@
+%section
+  .page-header
+    %h1= Workout.model_name.human(count: 2)
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Workout.human_attribute_name :datetime
+      %th= Workout.human_attribute_name :duration
+      %th= Workout.human_attribute_name :sport
+      %th= Workout.human_attribute_name :where
+      %th= Workout.human_attribute_name :comment
+      %th
+
+  %tbody
+    - @workouts.each do |workout|
+      %tr
+        %td= workout.datetime
+        %td= workout.duration
+        %td=t workout.sport
+        %td= workout.where
+        %td= workout.comment
+        %td
+          = link_to t('show'), workout
+          \|
+          = link_to t('edit'), edit_workout_path(workout)
+          \|
+          = link_to t('destroy'), workout, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+
+%br
+
+= link_to t('new', :model => Workout.model_name.human), new_workout_path

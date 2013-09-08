@@ -1,0 +1,7 @@
+%section
+  .page-header
+    %h1= t('new', :model => Workout.model_name.human)
+
+= render 'form'
+
+= link_to t('back'), workouts_path

@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   def index
     @payments  = current_user.payments.ordered.by_date(@date)
     @meals     = current_user.meals.ordered.by_date(@date)
+    @workouts  = current_user.workouts.ordered.by_date(@date)
     @chronicle = current_user.chronicles.find_by_date(@date.to_date)
   end
 

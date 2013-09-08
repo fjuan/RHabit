@@ -1,0 +1,12 @@
+= simple_form_for(@workout) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :datetime
+    = f.input :duration
+    = f.input :sport, collection: @sports
+    = f.input :where
+    = f.input :comment
+
+  .actions
+    = f.button :submit
