@@ -11,11 +11,11 @@ class DashboardController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_date
       begin
-        @date = params[:date] && Time.parse(params[:date])
+        @date = params[:date] && Date.parse(params[:date])
       rescue ArgumentError
       end
 
-      @date ||= Time.now
+      @date ||= Date.today
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
