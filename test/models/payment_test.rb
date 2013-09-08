@@ -10,7 +10,7 @@ class PaymentTest < ActiveSupport::TestCase
   end
 
   test "summary" do
-    summary = "2013-08-17 at 10:35 - 1.5 (cash) on fruits"
+    summary = "2013-08-17 at 12:35 - 1.5 (cash) on fruits"
     assert_equal(summary, payments(:one).summary)
   end
 

@@ -10,7 +10,7 @@ class MealTest < ActiveSupport::TestCase
   end
 
   test "summary" do
-    summary = "2013-08-18 at 10:42 - snack at home: Chocolate cookies"
+    summary = "2013-08-18 at 12:42 - snack at home: Chocolate cookies"
     assert_equal(summary, meals(:two).summary)
   end
 
