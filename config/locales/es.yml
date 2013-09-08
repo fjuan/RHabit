@@ -46,6 +46,7 @@ es:
   credit: "tarjeta de crédito"
   debit: "tarjeta de débito"
   transfer: "transferencia"
+  direct debit: "domiciliación"
 
   flash_message:
     notice:
