@@ -49,6 +49,7 @@ es:
   direct debit: "domiciliación"
 
   running: "correr"
+  pilates: "pilates"
   padel: "pádel"
   tennis: "tenis"
   cycling: "bicicleta"
@@ -105,7 +106,7 @@ es:
       workout:
         datetime: "Fecha y hora"
         time: "Hora"
-        duration: "Duración"
+        duration: "Duración (min)"
         sport: "Deporte"
         comment: "Comentario"
         where: "Dónde"        
