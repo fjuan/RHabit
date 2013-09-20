@@ -1,7 +1,7 @@
-= render 'chronicle'
+= render 'chronicle' if current_user.use_chronicles
 
-= render 'payments'
+= render 'meals' if current_user.use_meals
 
-= render 'meals'
+= render 'payments' if current_user.use_payments
 
-= render 'workouts'
+= render 'workouts' if current_user.use_workouts

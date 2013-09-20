@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_action :check_user_configuration
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :fill_selects, only: [:new, :create, :edit, :update]
 
@@ -63,6 +64,10 @@ class PaymentsController < ApplicationController
   end
 
   private
+    def check_user_configuration
+      redirect_to edit_user_registration_path, alert: t('flash_message.error.configure_desired_options_to_use') unless current_user.use_payments?
+    end
+
     def fill_selects
       @payment_categories = Payment::CATEGORIES.map{|s| [t(s), s]}
       @payment_methods    = Payment::METHODS.map{|s| [t(s), s]}

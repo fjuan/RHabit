@@ -1,4 +1,5 @@
 class ChroniclesController < ApplicationController
+  before_action :check_user_configuration
   before_action :set_chronicle, only: [:show, :edit, :update, :destroy]
   before_action :fill_selects, only: [:new, :create, :edit, :update]
 
@@ -63,6 +64,10 @@ class ChroniclesController < ApplicationController
   end
 
   private
+    def check_user_configuration
+      redirect_to edit_user_registration_path, alert: t('flash_message.error.configure_desired_options_to_use') unless current_user.use_chronicles?
+    end
+
     def fill_selects
       @moods = Chronicle::STATES_OF_MIND.map{|s| [t(s), s]}
     end
