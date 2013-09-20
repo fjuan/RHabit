@@ -1,4 +1,6 @@
 RHabit::Application.routes.draw do
+  resources :challenges
+
   resources :chronicles
 
   resources :meals

@@ -64,12 +64,18 @@ es:
 
   activerecord:
     models:
+      challenge:
+        one: "Reto"
+        other: "Retos"
       chronicle:
         one: "Resumen del día"
         other: "Resúmenes del día"
       meal:
         one: "Comida"
         other: "Comidas"
+      milestone:
+        one: "Logro"
+        other: "Logros"
       payment:
         one: "Gasto"
         other: "Gastos"
@@ -80,6 +86,17 @@ es:
         one: "Entrenamiento"
         other: "Entrenamientos"
     attributes:
+      challenge:
+        name: "Nombre"
+        start_date: "Fecha de inicio"
+        end_date: "Fecha de fin"
+        monday: "Lunes"
+        tuesday: "Martes"
+        wednesday: "Miércoles"
+        thursday: "Jueves"
+        friday: "Viernes"
+        saturday: "Sábado"
+        sunday: "Domingo"
       chronicle:
         date: "Fecha"
         mood: "Estado de ánimo"
@@ -90,6 +107,10 @@ es:
         kind: "Tipo"
         description: "Descripción"
         time: "Hora"
+      milestone:
+        date: "Fecha"
+        completed: "Completado"
+        comment: "Comentario"
       payment:
         datetime: "Fecha y hora"
         category: "Categoría"
