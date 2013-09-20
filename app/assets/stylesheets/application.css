@@ -17,6 +17,10 @@ section {
   margin-top: 60px;
 }
 
+.form-horizontal .control-label {
+  margin-right: 20px
+}
+
 @media (min-width: 980px) {
   body {
     padding-top: 50px;
