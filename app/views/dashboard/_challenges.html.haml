@@ -1,0 +1,21 @@
+%section
+  .page-header
+    %h1
+      = Challenge.model_name.human(count: 2)
+
+- if @milestones.size > 0
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Challenge.model_name.human
+        %th= Milestone.human_attribute_name :completed
+        %th
+    %tbody
+      - @milestones.each do |milestone|
+        %tr
+          %td= link_to milestone.challenge.name, milestone.challenge
+          %td=t milestone.completed_string
+
+- else
+  .alert.alert-info
+    = t('no_milestones')

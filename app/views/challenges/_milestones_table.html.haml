@@ -8,4 +8,4 @@
     - @challenge.milestones.each do |milestone|
       %tr
         %td= I18n.l(milestone.date, format: :short)
-        %td= milestone.completed
+        %td=t milestone.completed_string

@@ -53,6 +53,9 @@ es:
   padel: "pádel"
   tennis: "tenis"
   cycling: "bicicleta"
+
+  no_chronicle: "Todavía no has añadido el resumen del día"
+  no_milestones: "Hoy no tienes ningún reto que cumplir"
   
   flash_message:
     notice:

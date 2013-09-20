@@ -1,5 +1,7 @@
 = render 'chronicle' if current_user.use_chronicles
 
+= render 'challenges' if current_user.use_challenges
+
 = render 'meals' if current_user.use_meals
 
 = render 'payments' if current_user.use_payments

@@ -2,6 +2,7 @@
   .page-header
     %h1
       = Meal.model_name.human(count: 2)
+      = "(#{@meals.count})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_meal_path, class: 'btn'
 
 %table.table.table-striped

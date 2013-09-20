@@ -2,6 +2,7 @@
   .page-header
     %h1
       = Workout.model_name.human(count: 2)
+      = "(#{@workouts.sum(:duration)})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_workout_path, class: 'btn'
 
 %table.table.table-striped

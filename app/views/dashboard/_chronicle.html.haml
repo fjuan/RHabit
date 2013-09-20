@@ -24,3 +24,6 @@
     %p
       = Chronicle.human_attribute_name(:summary) + ':'
       = @chronicle.summary
+  - else
+    .alert.alert-info
+      = t('no_chronicle')

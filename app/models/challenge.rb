@@ -8,7 +8,6 @@ class Challenge < ActiveRecord::Base
 
   after_save :save_milestones
 
-
   def weekdays
     result = []
     result << 0 if sunday?
