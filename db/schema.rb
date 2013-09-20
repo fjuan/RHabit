@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907074501) do
+ActiveRecord::Schema.define(version: 20130920153051) do
 
   create_table "chronicles", force: true do |t|
     t.date     "date"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20130907074501) do
   add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(version: 20130907074501) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "use_meals",              default: true
+    t.boolean  "use_payments",           default: true
+    t.boolean  "use_workouts",           default: true
+    t.boolean  "use_chronicles",         default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

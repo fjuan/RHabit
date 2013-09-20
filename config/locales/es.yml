@@ -60,6 +60,7 @@ es:
       successfully_updated: '%{model} se ha actualizado correctamente'
     error:
       not_found: "No se ha encontrado el registro deseado"
+      configure_desired_options_to_use: "Configure las opciones que desea utilizar"
 
   activerecord:
     models:
@@ -103,6 +104,10 @@ es:
         password: "Contraseña"
         password_confirmation: "Confirmación de la contraseña"
         remember_me: "Recordarme"
+        use_meals: "Registrar comidas"
+        use_chronicles: "Registrar resumen diario"
+        use_workouts: "Registrar ejercicio"
+        use_payments: "Registrar pagos"
       workout:
         datetime: "Fecha y hora"
         time: "Hora"

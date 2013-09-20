@@ -3,23 +3,26 @@
     %h1= t('devise.links.my_account')
 
 .row
-  .span8
-    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-
+  .span6
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f|
       .form-inputs
-        = f.input :email, :required => true, :autofocus => true
+        =  f.input :email, :required => true, :autofocus => true
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %p
             Currently waiting confirmation for: #{resource.unconfirmed_email}
         = f.input :password, :autocomplete => "off", :hint => t('devise.accounts.password_hint'), :required => false
         = f.input :password_confirmation, :required => false
+        = f.input :use_payments
+        = f.input :use_meals
+        = f.input :use_workouts
+        = f.input :use_chronicles
         = f.input :current_password, :hint => t('devise.accounts.password_confirmation'), :required => true
-
       .form-actions
         = f.button :submit, t('update')
-  .span4
-    %h3=t 'devise.accounts.cancel_my_account'
 
-    %p
-      =t 'devise.accounts.unhappy' 
-      = link_to t('devise.accounts.cancel_my_account'), registration_path(resource_name), :data => { :confirm => t('helpers.links.confirm') }, :method => :delete
+  .span6
+    .well
+      %h3=t 'devise.accounts.cancel_my_account'
+      %p
+        =t 'devise.accounts.unhappy' 
+        = link_to t('devise.accounts.cancel_my_account'), registration_path(resource_name), :data => { :confirm => t('helpers.links.confirm') }, :method => :delete
