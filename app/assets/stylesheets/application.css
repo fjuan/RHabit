@@ -21,6 +21,11 @@ section {
   margin-right: 20px
 }
 
+.large-text {
+  font-size: 150%;
+  line-height: 2;
+}
+
 @media (min-width: 980px) {
   body {
     padding-top: 50px;

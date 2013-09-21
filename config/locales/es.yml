@@ -64,6 +64,9 @@ es:
     error:
       not_found: "No se ha encontrado el registro deseado"
       configure_desired_options_to_use: "Configure las opciones que desea utilizar"
+      trying_to_see_the_future: "¿Intentado ver el futuro?"
+  
+  go_back_to_present: "Volver al presente"
 
   activerecord:
     models:

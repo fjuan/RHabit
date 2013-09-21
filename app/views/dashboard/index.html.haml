@@ -1,9 +1,18 @@
-= render 'chronicle' if current_user.use_chronicles
+- if @date <= Date.today
+  = render 'chronicle' if current_user.use_chronicles
 
-= render 'challenges' if current_user.use_challenges
+  = render 'challenges' if current_user.use_challenges
 
-= render 'meals' if current_user.use_meals
+  = render 'meals' if current_user.use_meals
 
-= render 'payments' if current_user.use_payments
+  = render 'payments' if current_user.use_payments
 
-= render 'workouts' if current_user.use_workouts
+  = render 'workouts' if current_user.use_workouts
+- else
+  .alert.alert-danger
+    .large-text
+      %b= t('flash_message.error.trying_to_see_the_future')
+
+  .text-center= image_tag('time.jpg')
+
+  %p= link_to t('go_back_to_present'), root_path(date: l(Date.today)), class: 'btn btn-primary'
