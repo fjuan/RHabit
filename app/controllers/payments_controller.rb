@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = current_user.payments.ordered.all
+    @payments = current_user.payments.ordered
   end
 
   # GET /payments/1

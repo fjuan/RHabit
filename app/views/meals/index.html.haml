@@ -1,6 +1,9 @@
 %section
   .page-header
-    %h1= Meal.model_name.human(count: 2)
+    %h1
+      = Meal.model_name.human(count: 2)
+      = "(#{@meals.count})"
+      = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_meal_path, class: 'btn'
 
 %table.table.table-striped
   %thead
@@ -24,7 +27,3 @@
           = link_to t('edit'), edit_meal_path(meal)
           \|
           = link_to t('destroy'), meal, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
-
-%br
-
-= link_to t('new', :model => Meal.model_name.human), new_meal_path

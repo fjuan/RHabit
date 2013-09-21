@@ -6,7 +6,7 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = current_user.challenges.all
+    @challenges = current_user.challenges
   end
 
   # GET /challenges/1

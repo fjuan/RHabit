@@ -6,7 +6,7 @@ class ChroniclesController < ApplicationController
   # GET /chronicles
   # GET /chronicles.json
   def index
-    @chronicles = current_user.chronicles.ordered.all
+    @chronicles = current_user.chronicles.ordered
   end
 
   # GET /chronicles/1
