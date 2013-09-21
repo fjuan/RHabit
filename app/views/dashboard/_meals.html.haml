@@ -5,27 +5,29 @@
       = "(#{@meals.count})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_meal_path, class: 'btn'
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Meal.human_attribute_name :time
-      %th= Meal.human_attribute_name :where
-      %th= Meal.human_attribute_name :kind
-      %th= Meal.human_attribute_name :description
-      %th
-
-  %tbody
-    - @meals.each do |meal|
+- if @meals.size > 0
+  %table.table.table-striped
+    %thead
       %tr
-        %td= meal.time
-        %td=t meal.where
-        %td=t meal.kind
-        %td= meal.description
-        %td
-          = link_to t('show'), meal
-          \|
-          = link_to t('edit'), edit_meal_path(meal)
-          \|
-          = link_to t('destroy'), meal, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+        %th= Meal.human_attribute_name :time
+        %th= Meal.human_attribute_name :where
+        %th= Meal.human_attribute_name :kind
+        %th= Meal.human_attribute_name :description
+        %th
 
-
+    %tbody
+      - @meals.each do |meal|
+        %tr
+          %td= meal.time
+          %td=t meal.where
+          %td=t meal.kind
+          %td= meal.description
+          %td
+            = link_to t('show'), meal
+            \|
+            = link_to t('edit'), edit_meal_path(meal)
+            \|
+            = link_to t('destroy'), meal, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+- else
+  .alert.alert-info
+    = t('no_meals')

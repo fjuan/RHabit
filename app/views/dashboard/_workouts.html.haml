@@ -5,29 +5,31 @@
       = "(#{@workouts.sum(:duration)})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_workout_path, class: 'btn'
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Workout.human_attribute_name :time
-      %th= Workout.human_attribute_name :duration
-      %th= Workout.human_attribute_name :sport
-      %th= Workout.human_attribute_name :where
-      %th= Workout.human_attribute_name :comment
-      %th
-
-  %tbody
-    - @workouts.each do |workout|
+- if @workouts.size > 0
+  %table.table.table-striped
+    %thead
       %tr
-        %td= workout.time
-        %td= workout.duration
-        %td=t workout.sport
-        %td= workout.where
-        %td= workout.comment
-        %td
-          = link_to t('show'), workout
-          \|
-          = link_to t('edit'), edit_workout_path(workout)
-          \|
-          = link_to t('destroy'), workout, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+        %th= Workout.human_attribute_name :time
+        %th= Workout.human_attribute_name :duration
+        %th= Workout.human_attribute_name :sport
+        %th= Workout.human_attribute_name :where
+        %th= Workout.human_attribute_name :comment
+        %th
 
-
+    %tbody
+      - @workouts.each do |workout|
+        %tr
+          %td= workout.time
+          %td= workout.duration
+          %td=t workout.sport
+          %td= workout.where
+          %td= workout.comment
+          %td
+            = link_to t('show'), workout
+            \|
+            = link_to t('edit'), edit_workout_path(workout)
+            \|
+            = link_to t('destroy'), workout, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+- else
+  .alert.alert-danger
+    = t('no_workouts')

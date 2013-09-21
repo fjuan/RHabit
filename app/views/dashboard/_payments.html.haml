@@ -5,26 +5,29 @@
       = "(#{@payments.sum(:amount)})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_payment_path, class: 'btn'
 
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Payment.human_attribute_name :time
-      %th= Payment.human_attribute_name :method
-      %th= Payment.human_attribute_name :description
-      %th= Payment.human_attribute_name :amount
-      %th
-
-  %tbody
-    - @payments.each do |payment|
+- if @payments.size > 0
+  %table.table.table-striped
+    %thead
       %tr
-        %td= payment.time
-        %td=t payment.method
-        %td=t payment.description
-        %td= payment.amount
-        %td
-          = link_to t('show'), payment
-          \|
-          = link_to t('edit'), edit_payment_path(payment)
-          \|
-          = link_to t('destroy'), payment, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+        %th= Payment.human_attribute_name :time
+        %th= Payment.human_attribute_name :method
+        %th= Payment.human_attribute_name :description
+        %th= Payment.human_attribute_name :amount
+        %th
+
+    %tbody
+      - @payments.each do |payment|
+        %tr
+          %td= payment.time
+          %td=t payment.method
+          %td=t payment.description
+          %td= payment.amount
+          %td
+            = link_to t('show'), payment
+            \|
+            = link_to t('edit'), edit_payment_path(payment)
+            \|
+            = link_to t('destroy'), payment, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }
+- else
+  .alert.alert-info
+    = t('no_payments')
