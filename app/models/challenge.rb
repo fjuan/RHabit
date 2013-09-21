@@ -1,10 +1,11 @@
 class Challenge < ActiveRecord::Base
   validates :name, :start_date, :end_date, presence: true
 
-  has_many :milestones, dependent: :destroy, order: "milestones.date ASC"
+  has_many :milestones, -> { order "milestones.date ASC" }, dependent: :destroy
   belongs_to :user
 
   scope :ordered, -> { order("challenges.start_date DESC, challenges.end_date DESC") }
+  scope :by_date, ->(date) { where("challenges.start_date <= ? and challenges.end_date >= ?", date, date)}
 
   after_save :save_milestones
 
@@ -18,6 +19,32 @@ class Challenge < ActiveRecord::Base
     result << 5 if friday?
     result << 6 if saturday?
     return result
+  end
+
+  def remaining_days(date)
+    (end_date - date).to_i
+  end
+
+  def completeness_by_date(date)
+    past_milestones = milestones.until_date(date)
+    past_milestones_count = past_milestones.count
+    completed_milestones_count = past_milestones.where(completed: true).count
+
+    return 0 if past_milestones_count == 0
+    
+    return completed_milestones_count.to_f / past_milestones_count * 100
+  end
+
+  def streak_by_date(date)
+    streak = 0
+    milestones.until_date(date).collect(&:completed).reverse.each do |c|
+      if c
+        streak += 1
+      else
+        return streak
+      end
+    end
+    return streak
   end
 
   private

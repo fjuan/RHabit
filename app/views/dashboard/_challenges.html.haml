@@ -2,19 +2,33 @@
   .page-header
     %h1
       = Challenge.model_name.human(count: 2)
+      = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_challenge_path, class: 'btn'
 
-- if @milestones.size > 0
+- if @challenges_and_milestones.size > 0
   %table.table.table-striped
     %thead
       %tr
         %th= Challenge.model_name.human
-        %th= Milestone.human_attribute_name :completed
-        %th
+        %th= Challenge.human_attribute_name(:completeness)
+        %th= Challenge.human_attribute_name(:remaining_days)
+        %th= Challenge.human_attribute_name(:streak)
+        %th= Milestone.human_attribute_name(:completed?)
+
     %tbody
-      - @milestones.each do |milestone|
+      - @challenges_and_milestones.each do |challenge, milestone|
         %tr
-          %td= link_to milestone.challenge.name, milestone.challenge
-          %td=t milestone.completed_string
+          %th= link_to challenge.name, challenge
+          %td= number_to_percentage(challenge.completeness_by_date(@date), precision: 1)
+          %td= challenge.remaining_days(@date)
+          %td= challenge.streak_by_date(@date)
+          %td
+            - if milestone && milestone.completed?
+              .badge.badge-success
+                <i class="icon-ok"></i>
+            - elsif milestone
+              = link_to t('mark_as_complete'), complete_challenge_milestone_path(milestone.challenge, milestone), method: :put, class: 'btn btn-danger'
+            - else
+              .btn.disabled= t('nothing_to_do')
 
 - else
   .alert.alert-info
