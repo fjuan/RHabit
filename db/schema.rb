@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920153051) do
+ActiveRecord::Schema.define(version: 20130920214812) do
+
+  create_table "challenges", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "challenges", ["user_id"], name: "index_challenges_on_user_id"
 
   create_table "chronicles", force: true do |t|
     t.date     "date"
@@ -35,6 +53,17 @@ ActiveRecord::Schema.define(version: 20130920153051) do
   end
 
   add_index "meals", ["user_id"], name: "index_meals_on_user_id"
+
+  create_table "milestones", force: true do |t|
+    t.integer  "challenge_id"
+    t.date     "date"
+    t.boolean  "completed",    default: false
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "milestones", ["challenge_id"], name: "index_milestones_on_challenge_id"
 
   create_table "payments", force: true do |t|
     t.datetime "datetime"
@@ -67,6 +96,7 @@ ActiveRecord::Schema.define(version: 20130920153051) do
     t.boolean  "use_payments",           default: true
     t.boolean  "use_workouts",           default: true
     t.boolean  "use_chronicles",         default: true
+    t.boolean  "use_challenges",         default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

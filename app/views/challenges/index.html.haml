@@ -1,0 +1,39 @@
+%section
+  .page-header
+    %h1
+      = Challenge.model_name.human(count: 2)
+      = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_challenge_path, class: 'btn'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Challenge.human_attribute_name :name
+      %th= Challenge.human_attribute_name :start_date
+      %th= Challenge.human_attribute_name :end_date
+      %th= Challenge.human_attribute_name :monday
+      %th= Challenge.human_attribute_name :tuesday
+      %th= Challenge.human_attribute_name :wednesday
+      %th= Challenge.human_attribute_name :thursday
+      %th= Challenge.human_attribute_name :friday
+      %th= Challenge.human_attribute_name :saturday
+      %th= Challenge.human_attribute_name :sunday
+      %th
+  %tbody
+    - @challenges.each do |challenge|
+      %tr
+        %td= challenge.name
+        %td= challenge.start_date
+        %td= challenge.end_date
+        %td= challenge.monday
+        %td= challenge.tuesday
+        %td= challenge.wednesday
+        %td= challenge.thursday
+        %td= challenge.friday
+        %td= challenge.saturday
+        %td= challenge.sunday
+        %td
+          = link_to t('show'), challenge
+          \|
+          = link_to t('edit'), edit_challenge_path(challenge)
+          \|
+          = link_to t('destroy'), challenge, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }

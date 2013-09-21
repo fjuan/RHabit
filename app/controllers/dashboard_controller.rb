@@ -2,10 +2,12 @@ class DashboardController < ApplicationController
   before_action :set_date
 
   def index
-    @payments  = current_user.payments.ordered.by_date(@date)
-    @meals     = current_user.meals.ordered.by_date(@date)
-    @workouts  = current_user.workouts.ordered.by_date(@date)
-    @chronicle = current_user.chronicles.find_by_date(@date.to_date)
+    @payments   = current_user.payments.ordered.by_date(@date)
+    @meals      = current_user.meals.ordered.by_date(@date)
+    @workouts   = current_user.workouts.ordered.by_date(@date)
+    @chronicle  = current_user.chronicles.find_by(date: @date.to_date)
+    challenges = current_user.challenges.by_date(@date.to_date)
+    @challenges_and_milestones = challenges.inject({}){ |r, c| r.merge c => c.milestones.find_by(date: @date) }
   end
 
   private

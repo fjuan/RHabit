@@ -14,7 +14,12 @@ es:
   show: "Mostrar"
   edit: "Editar"
   destroy: "Eliminar"
-  
+
+  status: "Estado"
+  good_job: "¡Bien hecho!"
+  mark_as_complete: "Marcar como realizado"
+  nothing_to_do: "Hoy no toca"
+
   happy: "feliz"
   angry: "enfadado"
   sad: "triste"
@@ -53,6 +58,12 @@ es:
   padel: "pádel"
   tennis: "tenis"
   cycling: "bicicleta"
+
+  no_chronicle: "Todavía no has añadido el resumen del día"
+  no_milestones: "Hoy no tienes ningún reto que cumplir"
+  no_meals: "Todavía no has añadido ninguna comida"
+  no_payments: "¡Genial! Hoy no has gastado nada"
+  no_workouts: "¿Por qué no has hecho deporte aún?"
   
   flash_message:
     notice:
@@ -61,15 +72,24 @@ es:
     error:
       not_found: "No se ha encontrado el registro deseado"
       configure_desired_options_to_use: "Configure las opciones que desea utilizar"
+      trying_to_see_the_future: "¿Intentado ver el futuro?"
+  
+  go_back_to_present: "Volver al presente"
 
   activerecord:
     models:
+      challenge:
+        one: "Reto"
+        other: "Retos"
       chronicle:
         one: "Resumen del día"
         other: "Resúmenes del día"
       meal:
         one: "Comida"
         other: "Comidas"
+      milestone:
+        one: "Logro"
+        other: "Logros"
       payment:
         one: "Gasto"
         other: "Gastos"
@@ -80,6 +100,20 @@ es:
         one: "Entrenamiento"
         other: "Entrenamientos"
     attributes:
+      challenge:
+        name: "Nombre"
+        start_date: "Fecha de inicio"
+        end_date: "Fecha de fin"
+        monday: "Lunes"
+        tuesday: "Martes"
+        wednesday: "Miércoles"
+        thursday: "Jueves"
+        friday: "Viernes"
+        saturday: "Sábado"
+        sunday: "Domingo"
+        completeness: "Completado hasta ahora"
+        streak: "Racha actual"
+        remaining_days: "Días hasta acabar"
       chronicle:
         date: "Fecha"
         mood: "Estado de ánimo"
@@ -90,6 +124,11 @@ es:
         kind: "Tipo"
         description: "Descripción"
         time: "Hora"
+      milestone:
+        date: "Fecha"
+        completed: "Completado"
+        completed?: "¿Completado?"
+        comment: "Comentario"
       payment:
         datetime: "Fecha y hora"
         category: "Categoría"
@@ -104,10 +143,11 @@ es:
         password: "Contraseña"
         password_confirmation: "Confirmación de la contraseña"
         remember_me: "Recordarme"
+        use_challenges: "Registrar retos"
+        use_chronicles: "Registrar resúmenes diario"
         use_meals: "Registrar comidas"
-        use_chronicles: "Registrar resumen diario"
-        use_workouts: "Registrar ejercicio"
-        use_payments: "Registrar pagos"
+        use_payments: "Registrar gastos"
+        use_workouts: "Registrar entrenamientos"
       workout:
         datetime: "Fecha y hora"
         time: "Hora"

@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
           :password,
           :password_confirmation,
           :current_password,
+          :use_challenges,
           :use_chronicles,
           :use_meals,
           :use_payments,

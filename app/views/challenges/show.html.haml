@@ -1,0 +1,44 @@
+%section
+  .page-header
+    %h1
+      = Challenge.model_name.human
+
+
+.row
+  .span6
+    %h2= @challenge.name
+    %p
+      %b Start date:
+      =l @challenge.start_date, format: :long
+    %p
+      %b End date:
+      =l @challenge.end_date, format: :long
+    %p
+      %b Monday:
+      = @challenge.monday
+    %p
+      %b Tuesday:
+      = @challenge.tuesday
+    %p
+      %b Wednesday:
+      = @challenge.wednesday
+    %p
+      %b Thursday:
+      = @challenge.thursday
+    %p
+      %b Friday:
+      = @challenge.friday
+    %p
+      %b Saturday:
+      = @challenge.saturday
+    %p
+      %b Sunday:
+      = @challenge.sunday
+  .span6
+    = render partial: 'milestones_table', locals: {milestones: @challenge.milestones}
+
+%br
+
+= link_to t('edit'), edit_challenge_path(@challenge)
+\|
+= link_to t('back'), challenges_path
