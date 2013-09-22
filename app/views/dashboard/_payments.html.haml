@@ -2,7 +2,7 @@
   .page-header
     %h1
       = Payment.model_name.human(count: 2)
-      = "(#{@payments.sum(:amount)})"
+      = "(#{number_to_currency @payments.sum(:accountable_for)})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_payment_path, class: 'btn'
 
 - if @payments.size > 0
@@ -21,7 +21,7 @@
           %td= payment.time
           %td=t payment.method
           %td=t payment.description
-          %td= payment.amount
+          %td= number_to_currency payment.amount
           %td
             = link_to t('show'), payment
             \|

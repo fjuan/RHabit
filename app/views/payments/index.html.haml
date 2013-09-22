@@ -2,7 +2,7 @@
   .page-header
     %h1
       = Payment.model_name.human(count: 2)
-      = "(#{@payments.sum(:amount)})"
+      = "(#{number_to_currency @payments.sum(:accountable_for)})"
       = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_payment_path, class: 'btn'
 
 %table.table.table-striped
@@ -24,7 +24,7 @@
         %td=t payment.method
         %td=t payment.shared? ? 'yes' : 'no'
         %td= payment.description
-        %td= payment.amount
+        %td= number_to_currency payment.amount
         %td
           = link_to t('show'), payment
           \|
