@@ -50,6 +50,10 @@ gem 'simple-navigation-bootstrap'
 # Add devise for user authentication
 gem 'devise'
 
+# Creates a quick and clean table calendar
+gem 'simple_calendar'
+
+# Makes running your Rails app easier on heroku
 gem 'rails_12factor'
 
 group :doc do

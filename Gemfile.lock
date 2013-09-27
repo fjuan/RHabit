@@ -120,6 +120,8 @@ GEM
     simple-navigation-bootstrap (1.0.0)
       railties (>= 3.1)
       simple-navigation (>= 3.7.0)
+    simple_calendar (0.1.9)
+      rails (>= 3.0)
     simple_form (1.4.1)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -178,6 +180,7 @@ DEPENDENCIES
   sdoc
   simple-navigation
   simple-navigation-bootstrap
+  simple_calendar
   simple_form
   sqlite3
   therubyracer

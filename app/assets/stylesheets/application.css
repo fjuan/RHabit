@@ -21,6 +21,8 @@ section {
   margin-right: 20px
 }
 
+.calendar td { width: 14.28%; }
+
 .large-text {
   font-size: 150%;
   line-height: 2;

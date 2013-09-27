@@ -1,11 +1,3 @@
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Milestone.human_attribute_name :date
-      %th= Milestone.human_attribute_name :completed
-      %th
-  %tbody
-    - @challenge.milestones.each do |milestone|
-      %tr
-        %td= I18n.l(milestone.date, format: :short)
-        %td=t milestone.completed_string
+= calendar milestones, start_day: :monday do |milestone|
+  .badge{class: "badge-#{milestone.completed_badge}" }
+    =t milestone.completed_string

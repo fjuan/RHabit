@@ -12,4 +12,13 @@ class Milestone < ActiveRecord::Base
   def mark_completed
     self.update_attribute(:completed, true)
   end
+
+  def start_time
+    date.beginning_of_day
+  end
+
+  def completed_badge
+    return '' if date > Date.today
+    completed? ? 'success' : 'warning'
+  end
 end
