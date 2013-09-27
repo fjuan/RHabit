@@ -8,7 +8,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Workout.human_attribute_name :datetime
+      %th= Workout.human_attribute_name :date
+      %th= Workout.human_attribute_name :time
       %th= Workout.human_attribute_name :duration
       %th= Workout.human_attribute_name :sport
       %th= Workout.human_attribute_name :where
@@ -18,7 +19,8 @@
   %tbody
     - @workouts.each do |workout|
       %tr
-        %td= workout.datetime
+        %td=l workout.date, format: :short
+        %td= workout.time
         %td= workout.duration
         %td=t workout.sport
         %td= workout.where

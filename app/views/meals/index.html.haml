@@ -8,7 +8,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Meal.human_attribute_name :datetime
+      %th= Meal.human_attribute_name :date
+      %th= Meal.human_attribute_name :time
       %th= Meal.human_attribute_name :where
       %th= Meal.human_attribute_name :kind
       %th= Meal.human_attribute_name :description
@@ -17,7 +18,8 @@
   %tbody
     - @meals.each do |meal|
       %tr
-        %td= meal.datetime
+        %td=l meal.date, format: :short
+        %td= meal.time
         %td=t meal.where
         %td=t meal.kind
         %td= meal.description

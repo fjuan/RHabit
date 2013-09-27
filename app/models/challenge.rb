@@ -49,6 +49,14 @@ class Challenge < ActiveRecord::Base
     milestones.until_date(date).chunk{|m| m.completed}.collect{|s| [s[0],s[1].count]}
   end
 
+  def week_days
+    r = []
+    [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday].each do |dayname|
+      r << Challenge.human_attribute_name(dayname) if self.send(dayname)
+    end
+    return r.to_sentence
+  end
+
   private
 
   def save_milestones

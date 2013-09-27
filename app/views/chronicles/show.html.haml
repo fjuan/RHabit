@@ -2,7 +2,7 @@
   .page-header
     %h1
       = Chronicle.model_name.human
-      = @chronicle.date
+      =l @chronicle.date, format: :long
 
 %p
   %b= Chronicle.human_attribute_name :summary

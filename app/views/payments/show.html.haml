@@ -2,23 +2,26 @@
   .page-header
     %h1
       = Payment.model_name.human
-      = @payment.datetime
+      = number_to_currency @payment.amount
+%p
+  %b= Payment.human_attribute_name :date
+  =l @payment.date, format: :long
 
 %p
+  %b= Payment.human_attribute_name :time
+  = @payment.time
+%p
   %b= Payment.human_attribute_name :category
-  = @payment.category
+  =t @payment.category
 %p
   %b= Payment.human_attribute_name :method
-  = @payment.method
+  =t @payment.method
 %p
   %b= Payment.human_attribute_name :shared
   =t @payment.shared? ? 'yes' : 'no'
 %p
   %b= Payment.human_attribute_name :description
   = @payment.description
-%p
-  %b= Payment.human_attribute_name :amount
-  = @payment.amount
 
 %br
 

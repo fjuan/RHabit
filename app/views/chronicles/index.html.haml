@@ -15,8 +15,10 @@
   %tbody
     - @chronicles.each do |chronicle|
       %tr
-        %td= chronicle.date
-        %td= chronicle.summary
+        %td=l chronicle.date, format: :long
+        %td
+          = chronicle.summary[0..60]
+          = "..." if chronicle.summary.size > 60
         %td=t chronicle.mood
         %td
           = link_to t('show'), chronicle

@@ -8,7 +8,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Payment.human_attribute_name :datetime
+      %th= Payment.human_attribute_name :date
+      %th= Payment.human_attribute_name :time
       %th= Payment.human_attribute_name :category
       %th= Payment.human_attribute_name :method
       %th= Payment.human_attribute_name :shared
@@ -19,7 +20,8 @@
   %tbody
     - @payments.each do |payment|
       %tr
-        %td= payment.datetime
+        %td=l payment.date, format: :short
+        %td= payment.time
         %td=t payment.category
         %td=t payment.method
         %td=t payment.shared? ? 'yes' : 'no'

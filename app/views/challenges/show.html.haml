@@ -8,34 +8,25 @@
   .span6
     %h2= @challenge.name
     %p
-      %b Start date:
+      %b= Challenge.human_attribute_name :start_date
       =l @challenge.start_date, format: :long
     %p
-      %b End date:
+      %b= Challenge.human_attribute_name :end_date
       =l @challenge.end_date, format: :long
     %p
-      %b Monday:
-      = @challenge.monday
-    %p
-      %b Tuesday:
-      = @challenge.tuesday
-    %p
-      %b Wednesday:
-      = @challenge.wednesday
-    %p
-      %b Thursday:
-      = @challenge.thursday
-    %p
-      %b Friday:
-      = @challenge.friday
-    %p
-      %b Saturday:
-      = @challenge.saturday
-    %p
-      %b Sunday:
-      = @challenge.sunday
+      %b= Challenge.human_attribute_name :week_days
+      = @challenge.week_days
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= Challenge.human_attribute_name(:longest_streak)
+          %th= Challenge.human_attribute_name(:current_streak)
+      %tbody
+        %tr
+          %td= @challenge.longest_streak(Date.today)
+          %td= @challenge.current_streak(Date.today)
   .span6
-    = render partial: 'milestones_table', locals: {milestones: @challenge.milestones}
+    = render partial: 'milestones', locals: {milestones: @challenge.milestones}
 
 %br
 

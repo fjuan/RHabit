@@ -115,6 +115,7 @@ es:
         current_streak: "Racha actual"
         longest_streak: "Mejor racha"
         remaining_days: "Días hasta acabar"
+        week_days: "Días de la semana"
       chronicle:
         date: "Fecha"
         mood: "Estado de ánimo"
@@ -124,6 +125,7 @@ es:
         where: "Dónde"
         kind: "Tipo"
         description: "Descripción"
+        date: "Fecha"
         time: "Hora"
       milestone:
         date: "Fecha"
@@ -137,6 +139,7 @@ es:
         shared: "Compartido"
         description: "Descripción"
         amount: "Cantidad"
+        date: "Fecha"
         time: "Hora"
       user:
         current_password: "Contraseña actual"
