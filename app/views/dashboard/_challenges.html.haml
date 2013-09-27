@@ -11,7 +11,8 @@
         %th= Challenge.model_name.human
         %th= Challenge.human_attribute_name(:completeness)
         %th= Challenge.human_attribute_name(:remaining_days)
-        %th= Challenge.human_attribute_name(:streak)
+        %th= Challenge.human_attribute_name(:longest_streak)
+        %th= Challenge.human_attribute_name(:current_streak)
         %th= Milestone.human_attribute_name(:completed?)
 
     %tbody
@@ -20,7 +21,8 @@
           %th= link_to challenge.name, challenge
           %td= number_to_percentage(challenge.completeness_by_date(@date), precision: 1)
           %td= challenge.remaining_days(@date)
-          %td= challenge.streak_by_date(@date)
+          %td= challenge.longest_streak(@date)
+          %td= challenge.current_streak(@date)
           %td
             - if milestone && milestone.completed?
               .badge.badge-success

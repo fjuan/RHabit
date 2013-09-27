@@ -112,7 +112,8 @@ es:
         saturday: "Sábado"
         sunday: "Domingo"
         completeness: "Completado hasta ahora"
-        streak: "Racha actual"
+        current_streak: "Racha actual"
+        longest_streak: "Mejor racha"
         remaining_days: "Días hasta acabar"
       chronicle:
         date: "Fecha"

@@ -35,16 +35,18 @@ class Challenge < ActiveRecord::Base
     return completed_milestones_count.to_f / past_milestones_count * 100
   end
 
-  def streak_by_date(date)
-    streak = 0
-    milestones.until_date(date).collect(&:completed).reverse.each do |c|
-      if c
-        streak += 1
-      else
-        return streak
-      end
-    end
-    return streak
+  def current_streak(date)
+    last_streak = streaks_on_date(date).last
+    return 0 if last_streak[0] == false
+    return last_streak[1]
+  end
+
+  def longest_streak(date)
+    streaks_on_date(date).select{|s| s[0]}.collect{|s| s[1]}.max
+  end
+
+  def streaks_on_date(date)
+    milestones.until_date(date).chunk{|m| m.completed}.collect{|s| [s[0],s[1].count]}
   end
 
   private
