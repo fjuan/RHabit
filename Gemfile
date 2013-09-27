@@ -25,6 +25,9 @@ gem 'jquery-rails'
 # Add jquery UI
 gem 'jquery-ui-rails'
 
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks
+gem 'jquery-turbolinks'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

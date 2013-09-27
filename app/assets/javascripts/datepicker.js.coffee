@@ -1,9 +1,6 @@
-load_datepicker = ->
+jQuery ->
   $(".datepicker").datepicker
     dateFormat: "dd-mm-yy"
     showButtonPanel: true
     onSelect: (dateText, inst) ->
-      window.location = '/?date=' + dateText;
-
-$(document).ready(load_datepicker)
-$(document).on('page:load', load_datepicker)
+      Turbolinks.visit('/?date=' + dateText)
