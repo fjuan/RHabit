@@ -1,6 +1,6 @@
 class Workout < ActiveRecord::Base
 
-  SPORTS = %w(running pilates tennis padel cycling)
+  SPORTS = %w(running pilates swimming tennis padel cycling)
 
   validates :datetime, :duration, :sport, presence: true
 
