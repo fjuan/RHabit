@@ -12,6 +12,9 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    date = [@challenge.end_date, Date.today].min
+    params[:month] ||= date.month.to_s
+    params[:year]  ||= date.year.to_s
   end
 
   # GET /challenges/new
