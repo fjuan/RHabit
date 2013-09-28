@@ -10,18 +10,6 @@ class Challenge < ActiveRecord::Base
 
   after_save :save_milestones
 
-  def weekdays
-    result = []
-    result << 0 if sunday?
-    result << 1 if monday?
-    result << 2 if tuesday?
-    result << 3 if wednesday?
-    result << 4 if thursday?
-    result << 5 if friday?
-    result << 6 if saturday?
-    return result
-  end
-
   def remaining_days(date)
     (end_date - date).to_i
   end
@@ -52,7 +40,7 @@ class Challenge < ActiveRecord::Base
     milestones.until_date(date).chunk{|m| m.completed}.collect{|s| [s[0],s[1].count]}
   end
 
-  def week_days
+  def week_days_sentence
     r = []
     [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday].each do |dayname|
       r << Challenge.human_attribute_name(dayname) if self.send(dayname)
@@ -61,10 +49,16 @@ class Challenge < ActiveRecord::Base
   end
 
   private
+  
+  def check_dates
+    if start_date > end_date
+      errors.add(:end_date, I18n.t('errors.messages.start_date_cannot_be_greater_than_end_date'))
+    end
+  end
 
   def save_milestones
     (start_date..end_date).each do |date|
-      if weekdays.include? date.wday
+      if week_days_array.include? date.wday
         milestones.find_or_create_by(date: date)
       else
         milestones.find_by(date: date).try(:delete)
@@ -75,9 +69,15 @@ class Challenge < ActiveRecord::Base
     milestones.after_date(end_date).delete_all
   end
 
-  def check_dates
-    if start_date > end_date
-      errors.add(:end_date, I18n.t('errors.messages.start_date_cannot_be_greater_than_end_date'))
-    end
+  def week_days_array
+    result = []
+    result << 0 if sunday?
+    result << 1 if monday?
+    result << 2 if tuesday?
+    result << 3 if wednesday?
+    result << 4 if thursday?
+    result << 5 if friday?
+    result << 6 if saturday?
+    return result
   end
 end

@@ -15,7 +15,7 @@
       =l @challenge.end_date, format: :long
     %p
       %b= Challenge.human_attribute_name :week_days
-      = @challenge.week_days
+      = @challenge.week_days_sentence
     %table.table.table-striped
       %thead
         %tr

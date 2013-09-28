@@ -20,7 +20,7 @@
         %td= challenge.name
         %td=l challenge.start_date, format: :short
         %td=l challenge.end_date, format: :short
-        %td= challenge.week_days
+        %td= challenge.week_days_sentence
         %td= challenge.longest_streak(Date.today)
         %td= challenge.current_streak(Date.today)
         %td
