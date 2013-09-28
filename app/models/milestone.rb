@@ -5,10 +5,6 @@ class Milestone < ActiveRecord::Base
   scope :until_date, ->(date) { where("date <= ?", date) }
   scope :ordered,    -> { order("date DESC") }
 
-  def completed_string
-    completed? ? 'yes' : 'no'
-  end
-
   def mark_completed
     self.update_attribute(:completed, true)
   end
@@ -21,5 +17,9 @@ class Milestone < ActiveRecord::Base
     return 'success' if completed?
     return 'warning' if date <= Date.today
     return ''
+  end
+
+  def old?
+    date <= Date.today
   end
 end

@@ -21,7 +21,9 @@ section {
   margin-right: 20px
 }
 
-.calendar td { width: 14.28%; }
+.calendar td { width: 14.28%; height: 50px;}
+
+.not-current-month div { display: none; }
 
 .large-text {
   font-size: 150%;

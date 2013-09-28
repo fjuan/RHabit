@@ -1,3 +1,9 @@
 = calendar milestones, start_day: :monday do |milestone|
-  .badge{class: "badge-#{milestone.completed_badge}" }
-    =t milestone.completed_string
+  .text-center
+    .badge{class: "badge-#{milestone.completed_badge}" }
+      - if milestone.completed?
+        <i class="icon-thumbs-up"></i>
+      - elsif milestone.old?
+        <i class="icon-circle-blank"></i>
+      - else
+        <i class="icon-minus"></i>
