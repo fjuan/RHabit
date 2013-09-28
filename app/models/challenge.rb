@@ -1,5 +1,6 @@
 class Challenge < ActiveRecord::Base
   validates :name, :start_date, :end_date, presence: true
+  validate :check_dates
 
   has_many :milestones, -> { order "milestones.date ASC" }, dependent: :destroy
   belongs_to :user
@@ -67,5 +68,11 @@ class Challenge < ActiveRecord::Base
         milestones.find_by(date: date).try(:delete)
       end
     end
-  end 
+  end
+
+  def check_dates
+    if start_date > end_date
+      errors.add(:end_date, I18n.t('errors.messages.start_date_cannot_be_greater_than_end_date'))
+    end
+  end
 end

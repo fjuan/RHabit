@@ -159,4 +159,7 @@ es:
         duration: "Duración (min)"
         sport: "Deporte"
         comment: "Comentario"
-        where: "Dónde"        
+        where: "Dónde"
+  errors: &errors
+    messages:
+      'start_date_cannot_be_greater_than_end_date': "la fecha de inicio no puede ser posterior a la fecha de fin"
