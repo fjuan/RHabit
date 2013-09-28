@@ -18,7 +18,8 @@ class Milestone < ActiveRecord::Base
   end
 
   def completed_badge
-    return '' if date > Date.today
-    completed? ? 'success' : 'warning'
+    return 'success' if completed?
+    return 'warning' if date <= Date.today
+    return ''
   end
 end
