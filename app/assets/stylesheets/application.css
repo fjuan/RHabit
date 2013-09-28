@@ -21,9 +21,19 @@ section {
   margin-right: 20px
 }
 
-.calendar td { width: 14.28%; height: 50px;}
+.calendar td {
+  width: 14.28%;
+  height: 50px;
+}
 
-.not-current-month div { display: none; }
+.calendar td.today {
+  color: #178acc;
+  font-weight: bold;
+}
+
+.calendar .not-current-month div {
+  display: none;
+}
 
 .large-text {
   font-size: 150%;
