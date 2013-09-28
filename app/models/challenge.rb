@@ -68,6 +68,9 @@ class Challenge < ActiveRecord::Base
         milestones.find_by(date: date).try(:delete)
       end
     end
+
+    milestones.before_date(start_date).delete_all
+    milestones.after_date(end_date).delete_all
   end
 
   def check_dates

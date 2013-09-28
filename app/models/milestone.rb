@@ -1,9 +1,11 @@
 class Milestone < ActiveRecord::Base
   belongs_to :challenge
 
-  scope :by_date,    ->(date) { where(date: date) }
-  scope :until_date, ->(date) { where("date <= ?", date) }
-  scope :ordered,    -> { order("date DESC") }
+  scope :by_date,     ->(date) { where(date: date) }
+  scope :until_date,  ->(date) { where("date <= ?", date) }
+  scope :before_date, ->(date) { where("date < ?", date) }
+  scope :after_date,  ->(date) { where("date > ?", date) }
+  scope :ordered,     -> { order("date DESC") }
 
   def mark_completed
     self.update_attribute(:completed, true)
