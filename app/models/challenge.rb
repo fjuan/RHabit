@@ -38,12 +38,14 @@ class Challenge < ActiveRecord::Base
 
   def current_streak(date)
     last_streak = streaks_on_date(date).last
-    return 0 if last_streak[0] == false
-    return last_streak[1]
+    
+    return 0 if last_streak.nil? || last_streak[0] == false
+    
+    last_streak[1]
   end
 
   def longest_streak(date)
-    streaks_on_date(date).select{|s| s[0]}.collect{|s| s[1]}.max
+    streaks_on_date(date).select{|s| s[0]}.collect{|s| s[1]}.max || 0
   end
 
   def streaks_on_date(date)
