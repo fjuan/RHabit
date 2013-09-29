@@ -26,19 +26,20 @@
             %span.icon-bar
             %span.icon-bar
           = link_to "RHabit", root_path(date: I18n.localize(Date.today)), class: 'brand'
-          %ul.nav
-            %li
-              = form_tag root_path, method: 'get', class: 'navbar-form' do
-                = text_field_tag :date, @date && l(@date), placeholder: t('pick_a_date'), class: 'input-small datepicker'
-                = submit_tag t('go'), class: 'btn'
-            %li.divider-vertical
           - if user_signed_in?
-            .container.nav-collapse
-              = render_navigation level: :all, expand_all: true, renderer: :bootstrap
-              .pull-right
-                %ul.nav
-                  %li= link_to t('devise.links.my_account'), edit_user_registration_path
-                  %li= link_to t('devise.links.sign_out'), destroy_user_session_path, :method => :delete
+            .container
+              %ul.nav
+                %li
+                  = form_tag root_path, method: 'get', class: 'navbar-form' do
+                    = text_field_tag :date, @date && l(@date), placeholder: t('pick_a_date'), class: 'input-small datepicker'
+                    = submit_tag t('go'), class: 'btn'
+                %li.divider-vertical
+              .nav-collapse
+                = render_navigation level: :all, expand_all: true, renderer: :bootstrap
+                .pull-right
+                  %ul.nav
+                    %li= link_to t('devise.links.my_account'), edit_user_registration_path
+                    %li= link_to t('devise.links.sign_out'), destroy_user_session_path, :method => :delete
 
     .container
       = bootstrap_flash
