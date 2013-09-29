@@ -9,4 +9,6 @@ Vagrant::Config.run do |config|
   config.vm.boot_mode = :headless
 
   config.vm.network :hostonly, "192.168.33.24"
+
+  config.vm.forward_port 3000, 3000
 end
