@@ -11,8 +11,8 @@
       %th= Challenge.human_attribute_name :start_date
       %th= Challenge.human_attribute_name :end_date
       %th= Challenge.human_attribute_name :week_days
-      %th= Challenge.human_attribute_name(:longest_streak)
-      %th= Challenge.human_attribute_name(:current_streak)
+      %th= Challenge.human_attribute_name :longest_streak
+      %th= Challenge.human_attribute_name :current_streak
       %th
   %tbody
     - @challenges.each do |challenge|
@@ -21,8 +21,8 @@
         %td=l challenge.start_date, format: :short
         %td=l challenge.end_date, format: :short
         %td= challenge.week_days_sentence
-        %td= challenge.longest_streak(Date.today)
-        %td= challenge.current_streak(Date.today)
+        %td= challenge.longest_streak Date.today
+        %td= challenge.current_streak Date.today
         %td
           = link_to t('show'), challenge
           \|

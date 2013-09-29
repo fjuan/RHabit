@@ -19,14 +19,14 @@
     %table.table.table-striped
       %thead
         %tr
-          %th= Challenge.human_attribute_name(:completeness)
-          %th= Challenge.human_attribute_name(:longest_streak)
-          %th= Challenge.human_attribute_name(:current_streak)
+          %th= Challenge.human_attribute_name :completeness
+          %th= Challenge.human_attribute_name :longest_streak
+          %th= Challenge.human_attribute_name :current_streak
       %tbody
         %tr
-          %td= number_to_percentage(@challenge.completeness_by_date(Date.today), precision: 1)
-          %td= @challenge.longest_streak(Date.today)
-          %td= @challenge.current_streak(Date.today)
+          %td= @challenge.completeness_by_date Date.today
+          %td= @challenge.longest_streak Date.today
+          %td= @challenge.current_streak Date.today
   .span6
     = render partial: 'milestones', locals: {milestones: @challenge.milestones}
 

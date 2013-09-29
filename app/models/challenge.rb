@@ -18,10 +18,8 @@ class Challenge < ActiveRecord::Base
     past_milestones = milestones.until_date(date)
     past_milestones_count = past_milestones.count
     completed_milestones_count = past_milestones.where(completed: true).count
-
-    return 0 if past_milestones_count == 0
     
-    return completed_milestones_count.to_f / past_milestones_count * 100
+    return "#{completed_milestones_count} / #{past_milestones_count}"
   end
 
   def current_streak(date)

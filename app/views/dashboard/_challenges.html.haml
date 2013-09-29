@@ -19,7 +19,7 @@
       - @challenges_and_milestones.each do |challenge, milestone|
         %tr
           %th= link_to challenge.name, challenge
-          %td= number_to_percentage(challenge.completeness_by_date(@date), precision: 1)
+          %td= challenge.completeness_by_date(@date)
           %td= challenge.remaining_days(@date)
           %td= challenge.longest_streak(@date)
           %td= challenge.current_streak(@date)
