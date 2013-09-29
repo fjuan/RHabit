@@ -1,4 +1,11 @@
 - if @date <= Date.today
+  %ul.breadcrumb.pull-right
+    %li
+      = form_tag root_path, method: 'get', class: 'form-inline' do
+        = label_tag :date, t('pick_a_date')
+        = text_field_tag :date, l(@date), placeholder: t('pick_a_date'), class: 'input-small datepicker'
+        = submit_tag t('go'), class: 'btn'
+  
   = render 'chronicle' if current_user.use_chronicles
 
   = render 'challenges' if current_user.use_challenges
@@ -13,6 +20,8 @@
     .large-text
       %b= t('flash_message.error.trying_to_see_the_future')
 
-  .text-center= image_tag('time.jpg')
+  .text-center= link_to image_tag('time.jpg'), root_path(date: l(Date.today))
+
+  %hr
 
   %p= link_to t('go_back_to_present'), root_path(date: l(Date.today)), class: 'btn btn-primary'

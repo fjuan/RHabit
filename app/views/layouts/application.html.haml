@@ -28,12 +28,6 @@
           = link_to "RHabit", root_path(date: I18n.localize(Date.today)), class: 'brand'
           - if user_signed_in?
             .container
-              %ul.nav
-                %li
-                  = form_tag root_path, method: 'get', class: 'navbar-form' do
-                    = text_field_tag :date, @date && l(@date), placeholder: t('pick_a_date'), class: 'input-small datepicker'
-                    = submit_tag t('go'), class: 'btn'
-                %li.divider-vertical
               .nav-collapse
                 = render_navigation level: :all, expand_all: true, renderer: :bootstrap
                 .pull-right
