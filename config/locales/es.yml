@@ -3,6 +3,7 @@ es:
   'yes': "si"
   'no': "no"
   go: "ir"
+  pick_a_date: "Ir a una fecha"
 
   edit: "Editar %{model}"
   new: "Crear %{model}"

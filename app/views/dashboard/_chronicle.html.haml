@@ -1,21 +1,15 @@
 %section
   .page-header
-    .row
-      .span9
-        %h1
-          = Chronicle.model_name.human
-          - if @chronicle.present?
-            - if @chronicle.mood == "happy"
-              <i class="icon-thumbs-up"></i>
-            - else
-              <i class="icon-thumbs-down"></i>
-            = link_to "<i class='icon-edit'></i> #{t('helpers.links.edit')}".html_safe, edit_chronicle_path(@chronicle), class: 'btn'
-          - else 
-            = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_chronicle_path, class: 'btn'
-      .span3
-        = form_tag root_path, :method => 'get', :class => 'form-search' do
-          = text_field_tag :date, l(@date), :class => 'input-small datepicker'
-          = submit_tag t('go'), :class => 'btn'
+    %h1
+      = Chronicle.model_name.human
+      - if @chronicle.present?
+        - if @chronicle.mood == "happy"
+          <i class="icon-thumbs-up"></i>
+        - else
+          <i class="icon-thumbs-down"></i>
+        = link_to "<i class='icon-edit'></i> #{t('helpers.links.edit')}".html_safe, edit_chronicle_path(@chronicle), class: 'btn'
+      - else 
+        = link_to "<i class='icon-plus'></i> #{t('helpers.links.add')}".html_safe, new_chronicle_path, class: 'btn'        
 
   - if @chronicle
     %p
